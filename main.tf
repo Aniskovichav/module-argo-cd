@@ -28,7 +28,7 @@ provider "aws" {
   region = var.aws_region
 }
 
-data "aws_eks_cluster" "msur" {
+data "aws_eks_cluster" "aav" {
   name = var.kubernetes_cluster_id
 }
 
@@ -66,7 +66,7 @@ resource "kubernetes_namespace" "argo-ns" {
 }
 
 resource "helm_release" "argocd" {
-  name       = "msur"
+  name       = "aav"
   chart      = "argo-cd"
   repository = "https://argoproj.github.io/argo-helm"
   namespace  = "argocd"
